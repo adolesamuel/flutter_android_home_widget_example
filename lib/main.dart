@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Builder(
-          builder: (context) => RaisedButton(
+          builder: (context) => ElevatedButton(
             child: Text('Add widget'),
             onPressed: () async {
               String msg;
@@ -51,7 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 msg = "Failed to add widget: '${e.message}'.";
               }
 
-              Scaffold.of(context).showSnackBar(SnackBar(content: Text(msg)));
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(msg)));
             },
           ),
         ),
